@@ -2,7 +2,6 @@ package models
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -41,7 +40,6 @@ func ParseFromHttpResponse(hr *http.Response, response IResponse) (err error) {
 	if err != nil {
 		return err
 	}
-	fmt.Println("body", string(body), response, response.GetRequestId())
 
 	if response.GetCode() != 0 {
 		return NewCmqError(response.GetCode(), response.GetMessage(),

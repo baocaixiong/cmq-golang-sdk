@@ -24,5 +24,5 @@ func NewReceiveMessageReq(n string) *ReceiveMessageReq {
 }
 
 func NewReceiveMessageResp() *ReceiveMessageResp {
-	return &ReceiveMessageResp{}
+	return new(ReceiveMessageResp)
 }

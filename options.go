@@ -1,6 +1,8 @@
 package cmq
 
-import "strings"
+import (
+	"strings"
+)
 
 const (
 	Topic = iota
@@ -45,7 +47,7 @@ func newOptions(opts ...Option) *Options {
 		options.queueUrl = strings.Replace(WideNetQueueUrl, "{region}", options.Region, 1)
 		options.topicUrl = strings.Replace(WideNetTopicUrl, "{region}", options.Region, 1)
 	} else {
-		panic("net_env must be [wan lan]")
+		panic("net env must be [wan lan]")
 	}
 
 	return options
@@ -60,7 +62,7 @@ func Region(r string) Option {
 func NetEnv(e string) Option {
 	return func(o *Options) {
 		if o.Region == "" {
-			panic("region can not empty")
+			panic("net env can not empty")
 		}
 		o.NetEnv = e
 	}

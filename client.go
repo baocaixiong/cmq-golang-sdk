@@ -54,6 +54,15 @@ func (c *Client) Send(request models.IRequest, response models.IResponse) (err e
 	if err != nil {
 		return
 	}
+	//trace := &httptrace.ClientTrace{
+	//	DNSDone: func(dnsInfo httptrace.DNSDoneInfo) {
+	//		log.Printf("dns done info: %+v\n", dnsInfo)
+	//	},
+	//	GotConn: func(connInfo httptrace.GotConnInfo) {
+	//		log.Printf("Got Conn: %+v\n", connInfo)
+	//	},
+	//}
+	//httpRequest = httpRequest.WithContext(httptrace.WithClientTrace(httpRequest.Context(), trace))
 	httpRequest.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 	httpResponse, err := c.httpClient.Do(httpRequest)

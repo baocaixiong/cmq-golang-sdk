@@ -23,3 +23,15 @@ func Float64Ptr(v float64) *float64 {
 func StringPtr(v string) *string {
 	return &v
 }
+
+func SliceStringPtr(v []string) *[]string {
+	return &v
+}
+
+func SliceStringValue(v *[]string) []string {
+	if v != nil {
+		return *v
+	}
+
+	return nil
+}
