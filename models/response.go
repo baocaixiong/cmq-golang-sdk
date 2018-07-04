@@ -40,10 +40,5 @@ func ParseFromHttpResponse(hr *http.Response, response IResponse) (err error) {
 	if err != nil {
 		return err
 	}
-
-	if response.GetCode() != 0 {
-		return NewCmqError(response.GetCode(), response.GetMessage(),
-			response.GetRequestId())
-	}
 	return
 }

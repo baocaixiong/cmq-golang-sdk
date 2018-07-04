@@ -2,7 +2,7 @@
 
 ### 单独使用
 
-```
+```go
 opt := &cmq.Options{
     Credential: &cmq.Credential{
 
