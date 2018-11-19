@@ -1,5 +1,7 @@
 package models
 
+import "fmt"
+
 type BatchSendMessageReq struct {
 	*Request
 	QueueName    string   `name:"queueName"`
@@ -14,6 +16,10 @@ type BatchSendMessageResp struct {
 
 type SendMsgId struct {
 	MsgId string `json:"msgId"`
+}
+
+func (sm *SendMsgId) String() string {
+	return fmt.Sprintf("%s", sm.MsgId)
 }
 
 func NewBatchSendMessageReq(queueName string) *BatchSendMessageReq {
